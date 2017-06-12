@@ -761,3 +761,75 @@ Processing by PostsController#edit as HTML
   [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 4]]
   Rendered posts/edit.html.erb within layouts/application (16.0ms)
 Completed 200 OK in 347ms (Views: 318.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts" for ::1 at 2017-06-12 10:45:17 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 438ms (Views: 427.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2017-06-12 10:45:24 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 43ms (Views: 33.1ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/posts/1" for ::1 at 2017-06-12 10:45:30 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Q077MA5b22vG0oXuF3Hbv1Uyw1zYPxAbGXeFJfFpCZTSsNJuuxB2j5HIdZd8MibWImvnO5Xyrxy1jrpS9Ke/fg==", "post"=>{"title"=>"new shit", "description"=>"asdfasdf"}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["title", nil], ["description", nil], ["updated_at", "2017-06-12 14:45:30.505510"], ["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/posts/1" for ::1 at 2017-06-12 10:45:30 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+  [1m[36mPost Load (1.5ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+
+
+Started GET "/posts/1/edit" for ::1 at 2017-06-12 10:49:09 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/edit.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 15.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/posts/2/edit" for ::1 at 2017-06-12 10:49:15 -0400
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.1ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered posts/edit.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.1ms)
+
+
+Started PATCH "/posts/2" for ::1 at 2017-06-12 10:49:26 -0400
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eULtb277CDE1YhS+gJEhaYi7p4VIV8dVWKCO8SGiWmDovMQx27Cl1WJ45Mfr0twA/+KD4gWaeFL0WbGGJGzsig==", "post"=>{"title"=>"new title", "description"=>"new shit"}, "commit"=>"Update Post", "id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "posts" SET "title" = ?, "description" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["title", "new title"], ["description", "new shit"], ["updated_at", "2017-06-12 14:49:26.081014"], ["id", 2]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 4ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/posts/2" for ::1 at 2017-06-12 10:49:26 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.1ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/show.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.1ms)
